@@ -1,9 +1,14 @@
 import React from 'react'
+import video from "../assets/MBA Chai Wala.mp4"
+import  '../styles/intro.scss'
 
-const introVide = () => {
+const IntroVide = () => {
   return (
-    <div>introVideo</div>
+    <div className='intro'>
+      <video src={video} autoPlay muted loop controlsList='nodownload'></video>
+      <div></div>
+    </div>
   )
 }
 
-export default introVide
+export default IntroVide
