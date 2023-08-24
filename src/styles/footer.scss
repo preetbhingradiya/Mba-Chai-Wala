@@ -1,0 +1,71 @@
+@import "color";
+
+footer{
+    width: 100%;
+    height: 100vh;
+    background-color: $yellow;
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    padding: 13rem 6rem;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    h1{
+        color:$pink;
+        font: italic 800 60px $text;
+    }
+    aside{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        a{
+            text-decoration: none;
+            font: 510 14px $text;
+            color: $pink;
+            letter-spacing: 3px;
+            line-height: 1.6;
+            transition: all 0.5s;
+            text-decoration: uppercase;
+        }
+    }
+    div{
+        color: $pink;
+        display: flex;
+        flex-direction: column;
+        padding: 4rem;
+
+        &:last-of-type{
+            align-items: flex-end;
+        }
+        h5{
+            font:510 12px $text;
+            line-height: 1.1;
+            margin: 1rem 0;
+        }
+        a{
+            text-decoration: none;
+            color: $brown;
+            line-height: 1.4;
+        }
+    }
+    p{
+        font: 510 12px $text;
+        color: $pink;
+        text-transform: uppercase;
+        position: absolute;
+        letter-spacing: 3px;
+        line-height: 1.4;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+.footer{
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    z-index: -2;
+    position: absolute;
+}

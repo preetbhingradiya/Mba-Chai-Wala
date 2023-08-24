@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/section.scss";
 
 const Section = ({
   h3,
