@@ -19,7 +19,8 @@ import "./styles/intro.scss";
 import "./styles/section.scss";
 import "./styles/footer.scss";
 import "./styles/misc.scss";
-import './styles/mediaQurey.scss'
+import "./styles/mediaQurey.scss";
+import { useEffect } from "react";
 
 const yellow = "#fff100",
   pink = "#ed1e79",
@@ -38,6 +39,32 @@ function App() {
     barat,
     chaiwala,
   } = data;
+
+  const dotCursor = (e) => {
+    const cursor = document.querySelector(".cursor");
+    cursor.style.top = `${e.pageY - 14}px`;
+    cursor.style.left = `${e.pageX - 14}px`;
+
+    const element = e.target;
+    if (element.getAttribute("data-cursorPointer")) {
+      cursor.classList.add('cursorHover')
+    }
+    else if(element.getAttribute("data-cursorPointerMini")){
+      cursor.classList.add('cursorHoverMini')
+    }
+    else{
+      cursor.classList.remove('cursorHover')
+      cursor.classList.remove('cursorHoverMini')
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", dotCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", dotCursor);
+    };
+  }, []);
 
   return (
     <>
@@ -107,8 +134,8 @@ function App() {
         hasBtn={false}
       />
 
-        {/* course */}
-        <Section
+      {/* course */}
+      <Section
         h3={courses.heading}
         text={courses.text}
         btnTxt={courses.btn}
@@ -134,8 +161,8 @@ function App() {
         btnColor={yellow}
       />
 
-        {/* barat */}
-        <Section
+      {/* barat */}
+      <Section
         h3={barat.heading}
         text={barat.text}
         btnTxt={barat.btn}
@@ -147,8 +174,8 @@ function App() {
         btnColor={pink}
       />
 
-        {/* chaiwala */}
-        <Section
+      {/* chaiwala */}
+      <Section
         h3={chaiwala.heading}
         text={chaiwala.text}
         btnTxt={chaiwala.btn}
@@ -160,7 +187,7 @@ function App() {
         btnColor={yellow}
       />
 
-      <Footer/>
+      <Footer />
 
       <Misc />
     </>
